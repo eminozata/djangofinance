@@ -1,1 +1,203 @@
-{{veriler}}
+{% load static %}
+  <head>
+    <!-- Mobile Specific Meta -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="#" />
+    <!-- Author Meta -->
+    <meta name="author" content="Harrison Jansma" />
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="A personal website built and deployed by Harrison Jansma."
+    />
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="portfolio" />
+    <!-- meta character set -->
+    <meta charset="UTF-8" />
+    <!-- Site Title -->
+    <title>Emin Özata</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
+      rel="stylesheet"
+    />
+
+    <!--Semantic UI-->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--
+			CSS
+            "{% static 'css/main.css' %}"
+			============================================= -->
+
+
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+    <body>
+
+        <div class="ui grid">
+            {% for veri in veriler.wallet %}
+                <div class="four wide column">
+          
+                <div class="ui card">
+                    <div class="content">
+                      <div class="header">{{veri.asset}}</div>
+                      <div class="description">
+                        <p></p>
+                      </div>
+                    </div>
+                    <div class="extra content">
+                      <span class="left floated like">
+                        <i class="dollar sign icon"></i>
+                        {{veri.varlık_usd_deger}}
+                      </span>
+                      <span class="right floated star">
+                        <i class="lira sign icon"></i>
+                        {{veri.varlık_tl_deger}}
+                      </span>
+                    </div>
+                </div>
+
+                </div>
+            {% endfor %}
+        </div>
+
+    <div class="ui segment">
+        <div class="ui left dividing rail">
+          <div class="ui segment">
+            Left Rail Content
+          </div>
+        </div>
+        <div class="ui right dividing rail">
+          <div class="ui segment">
+            Right Rail Content
+          </div>
+        </div>
+
+        <table class="ui celled padded table">
+            <thead>
+              <tr><th class="ui center aligned header">Assets</th>
+              <th><i class="bitcoin icon"></i></th>
+              <th><i class="dollar sign icon"></i></th>
+              <th><i class="lira sign icon"></th>
+            </tr></thead>
+            <tbody>
+        
+                {% for veri in veriler.wallet %}
+              <tr>
+                <td>
+                  <h2 class="ui center aligned header">{{veri.asset}}</h2>
+                </td>
+                <td >
+                    <div class="ui statistics">
+                        <div class="red statistic">
+                          <div class="value">
+                            ₺{{veri.my_varlık}}
+                          </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="ui statistics">
+                        <div class="blue statistic">
+                          <div class="value">
+                            ₺{{veri.my_varlık_tl}}
+                          </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="ui statistics">
+                        <div class="green statistic">
+                          <div class="value">
+                            ${{veri.my_varlık_usd}}
+                          </div>
+                        </div>
+                    </div>
+                </td>
+              </tr>
+        
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+
+
+<div class="container">
+        <div class="ui grid">
+            <div class="eight wide column">
+                <div class="ui card">
+                    <div class="content">
+                        <div class="header">TOPLAM USD</div>
+                        <div class="description">
+                            <div class="ui statistics">
+                                <div class="green statistic">
+                                  <div class="value">
+                                    {{veriler.my_usd}}
+                                  </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="eight wide column">
+                <div class="ui card">
+                    <div class="content">
+                        <div class="header">TOPLAM TL</div>
+                        <div class="description">
+                                <div class="ui statistics">
+                                    <div class="blue statistic">
+                                      <div class="value">
+                                        {{veriler.my_tl}}
+                                      </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+<p></p>
+
+<div>
+        <h2>Borcu Karşılama Yüzdesi</h2>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:{{veriler.progress}}%">
+            {{veriler.progress}}%
+          </div>
+        </div>
+    </div>
+    
+
+</body>
+
+
+</html>
+

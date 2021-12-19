@@ -62,6 +62,7 @@ def ne_durumdayım():
     profit_perc = profit / my_tl * 100
     kalan_para = odenecek_tutar - my_tl
     kalan_para_perc = my_tl / odenecek_tutar * 100
+    progress = profit / kalan_para * 100
     
     x = {"my_tl":str(f"₺{round(my_tl,2)}"),
         "my_usd":str(f"${round(my_usd,2)}"),
@@ -69,6 +70,7 @@ def ne_durumdayım():
         "profit_perc":round(profit_perc,2),
         "kalan_para":kalan_para,
         "kalan_para_perc":round(kalan_para_perc,2),
+        "progress":round(progress,2),
         "wallet":wallet}
     return x
 
