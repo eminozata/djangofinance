@@ -26,6 +26,13 @@
       rel="stylesheet"
     />
 
+
+    <style>
+      div.a {
+        text-align: center;
+      }
+      </style>
+
     <!--Semantic UI-->
 
     <link
@@ -57,7 +64,7 @@
 
         <div class="ui grid">
             {% for veri in veriler.wallet %}
-                <div class="four wide column">
+                <div class="three wide column">
           
                 <div class="ui card">
                     <div class="content">
@@ -83,16 +90,7 @@
         </div>
 
     <div class="ui segment">
-        <div class="ui left dividing rail">
-          <div class="ui segment">
-            Left Rail Content
-          </div>
-        </div>
-        <div class="ui right dividing rail">
-          <div class="ui segment">
-            Right Rail Content
-          </div>
-        </div>
+
 
         <table class="ui celled padded table">
             <thead>
@@ -140,61 +138,105 @@
               {% endfor %}
             </tbody>
           </table>
-      </div>
 
-
-<div class="container">
-        <div class="ui grid">
-            <div class="eight wide column">
-                <div class="ui card">
-                    <div class="content">
-                        <div class="header">TOPLAM USD</div>
-                        <div class="description">
-                            <div class="ui statistics">
-                                <div class="green statistic">
-                                  <div class="value">
-                                    {{veriler.my_usd}}
-                                  </div>
-                                </div>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="eight wide column">
-                <div class="ui card">
-                    <div class="content">
-                        <div class="header">TOPLAM TL</div>
-                        <div class="description">
-                                <div class="ui statistics">
-                                    <div class="blue statistic">
-                                      <div class="value">
-                                        {{veriler.my_tl}}
-                                      </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
-
-
-
-
-
-<p></p>
-
-<div>
-        <h2>Borcu Karşılama Yüzdesi</h2>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:{{veriler.progress}}%">
-            {{veriler.progress}}%
-          </div>
-        </div>
     </div>
     
+
+
+  <div class="ui stackable four column grid">
+
+
+
+    <div class="column">
+      <div class="card">
+        <div class="content">
+          <div class="ui center aligned basic segment">
+            <div class="header">TOPLAM USD</div>
+          </div>
+          <div class="ui center aligned basic segment">
+            <div class="meta">#</div>
+          </div>
+          <div class="ui center aligned basic segment">
+            <div class="description">
+              <div class="ui red inverted statistic">
+                <div class="value">
+                  {{veriler.my_usd}}
+                </div>
+              </div>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <div class="content">
+          <div class="ui center aligned basic segment">
+            <div class="header">TOPLAM TL</div>
+          </div>
+          <div class="ui center aligned basic segment">
+            <div class="meta">#</div>
+          </div>
+          <div class="ui center aligned basic segment">
+            <div class="description">
+              <div class="ui blue inverted statistic">
+                <div class="value">
+                  {{veriler.my_tl}}
+                </div>
+              </div>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <div class="content">
+          <div class="ui center aligned basic segment">
+            <div class="header">KREDİDEN GELEN USD</div>
+          </div>
+          <div class="ui center aligned basic segment">
+            <div class="meta">{{kredi_verileri.kredi_giris_parasiyla_fark_usd}}</div>
+          </div>
+          <div class="ui center aligned basic segment">
+            <div class="description">
+              <div class="ui red inverted statistic">
+                <div class="value">
+                  ${{kredi_verileri.toplam_usd}}
+                </div>
+              </div>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <div class="content">
+          <div class="ui center aligned basic segment">
+            <div class="header">KREDİDEN GELEN TL</div>
+          </div>
+          <div class="ui center aligned basic segment">
+            <div class="meta">{{kredi_verileri.kredi_giris_parasiyla_fark_tl}}</div>
+          </div>
+          <div class="ui center aligned basic segment">
+            <div class="description">
+              <div class="ui blue inverted statistic">
+                <div class="value">
+                  ₺{{kredi_verileri.toplam_tl}}
+                </div>
+              </div>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+
+
+</div>
+
 
 </body>
 

@@ -9,4 +9,5 @@ import time
 
 def post_list(request):
     veriler = verilerim.ne_durumdayım()
-    return render(request, 'blog/post_list.html', {"veriler": veriler})
+    kredi_verileri = verilerim.kredi_cuzdan()
+    return render(request, 'blog/post_list.html', {"veriler": veriler,"kredi_verileri": kredi_verileri})

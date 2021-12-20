@@ -9,6 +9,45 @@ client = Client(api_key, api_secret)
 ana_para = 4450
 odenecek_tutar = 5561.86
 
+
+
+def kredi_cuzdan():
+
+    krediden_alinan_btc = 0.00283
+    krediden_alinan_eth = 0.0082 + 0.0267
+    krediden_alinan_tl = 8 
+
+
+    btc_try_price = float(client.get_symbol_ticker(symbol=f"BTCTRY")['price'])
+    btc_usd_price = float(client.get_symbol_ticker(symbol=f"BTCUSDT")['price'])
+    eth_try_price = float(client.get_symbol_ticker(symbol=f"ETHTRY")['price'])
+    eth_usd_price = float(client.get_symbol_ticker(symbol=f"ETHUSDT")['price'])
+    try_usd_price = float(client.get_symbol_ticker(symbol=f"USDTTRY")['price']) 
+    krediden_alinan_btc_try = krediden_alinan_btc * btc_try_price
+    krediden_alinan_btc_usd = krediden_alinan_btc * btc_usd_price
+
+    krediden_alinan_eth_try = krediden_alinan_eth * eth_try_price
+    krediden_alinan_eth_usd = krediden_alinan_eth * eth_usd_price
+
+    krediden_alinan_usd = krediden_alinan_tl / try_usd_price
+    toplam_tl = krediden_alinan_btc_try + krediden_alinan_eth_try + krediden_alinan_tl
+    toplam_usd = krediden_alinan_btc_usd + krediden_alinan_eth_usd + krediden_alinan_usd
+
+
+    ana_para_usd = ana_para / 16.35  
+    kredi_giris_parasiyla_fark_tl = -(ana_para - toplam_tl)
+    kredi_giris_parasiyla_fark_usd = -(ana_para_usd - toplam_usd)
+
+
+    x = {"toplam_tl":round(toplam_tl,2),
+        "toplam_usd":round(toplam_usd,2),
+        "kredi_giris_parasiyla_fark_tl":round(kredi_giris_parasiyla_fark_tl,2),
+        "kredi_giris_parasiyla_fark_usd":round(kredi_giris_parasiyla_fark_usd,2)}
+    return x
+
+
+
+
 def crypto_rates(asset):
     asset_try_price = float(client.get_symbol_ticker(symbol=f"{asset}TRY")['price'])
     asset_usd_price = float(client.get_symbol_ticker(symbol=f"{asset}USDT")['price'])
