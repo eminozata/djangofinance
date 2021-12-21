@@ -60,92 +60,100 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
   </head>
-    <body>
 
-        <div class="ui grid">
-            {% for veri in veriler.wallet %}
-                <div class="three wide column">
-          
-                <div class="ui card">
-                    <div class="content">
-                      <div class="header">{{veri.asset}}</div>
-                      <div class="description">
-                        <p></p>
-                      </div>
-                    </div>
-                    <div class="extra content">
-                      <span class="left floated like">
-                        <i class="dollar sign icon"></i>
-                        {{veri.varlık_usd_deger}}
-                      </span>
-                      <span class="right floated star">
-                        <i class="lira sign icon"></i>
-                        {{veri.varlık_tl_deger}}
-                      </span>
-                    </div>
-                </div>
 
+<body>
+
+  <div class="ui stackable five column grid">
+    {% for veri in veriler.wallet %}
+      <div class="column">
+        <div class="card">
+          <div class="content">
+            <div class="ui center aligned basic segment">
+              <div class="ui inverted segment">
+                <h2 class="ui red header">{{veri.asset}}</h2>
+              </div>
+            </div>
+            <div class="ui center aligned basic segment">
+              <div class="description">
+                <div class="ui blue inverted statistic">
+                  <div class="value">
+                    ₺{{veri.varlık_tl_deger}}
+                  </div>
                 </div>
-            {% endfor %}
+                <p></p>
+                <div class="ui red inverted statistic">
+                  <div class="value">
+                    ${{veri.varlık_usd_deger}}
+                  </div>
+                </div>
+              </div>
+            </div>    
+          </div>
         </div>
+      </div>
+    {% endfor %}
+  </div>
 
-    <div class="ui segment">
-
+  <div class="ui stackable one column grid">
+    <div class="column">   
+      <div class="ui segment">
 
         <table class="ui celled padded table">
-            <thead>
-              <tr><th class="ui center aligned header">Assets</th>
+          <thead>
+            <tr>
+              <th class="ui center aligned header">Assets</th>
               <th><i class="bitcoin icon"></i></th>
               <th><i class="lira sign icon"></i></th>
               <th><i class="dollar sign icon"></th>
-            </tr></thead>
-            <tbody>
-        
-                {% for veri in veriler.wallet %}
-              <tr>
-                <td>
-                  <h2 class="ui center aligned header">{{veri.asset}}</h2>
-                </td>
-                <td >
-                    <div class="ui statistics">
-                        <div class="red statistic">
-                          <div class="value">
-                            {{veri.my_varlık}}
-                          </div>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="ui statistics">
-                        <div class="blue statistic">
-                          <div class="value">
-                            ₺{{veri.my_varlık_tl}}
-                          </div>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="ui statistics">
-                        <div class="green statistic">
-                          <div class="value">
-                            ${{veri.my_varlık_usd}}
-                          </div>
-                        </div>
-                    </div>
-                </td>
-              </tr>
-        
-              {% endfor %}
-            </tbody>
-          </table>
+            </tr>
+          </thead>
 
+          <tbody>  
+            {% for veri in veriler.wallet %}
+            <tr>
+              <td>
+                <h2 class="ui center aligned header">{{veri.asset}}</h2>
+              </td>
+              <td >
+                <div class="ui statistics">
+                  <div class="red statistic">
+                    <div class="value">
+                      {{veri.my_varlık}}
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui statistics">
+                  <div class="blue statistic">
+                    <div class="value">
+                      ₺{{veri.my_varlık_tl}}
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui statistics">
+                  <div class="green statistic">
+                    <div class="value">
+                      ${{veri.my_varlık_usd}}
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        
+      </div>
     </div>
+  </div>
     
 
 
   <div class="ui stackable four column grid">
-
-
 
     <div class="column">
       <div class="card">
@@ -234,8 +242,7 @@
       </div>
     </div>
 
-
-</div>
+  </div>
 
 
 </body>
