@@ -149,7 +149,9 @@
             <div class="header">TOPLAM TL</div>
           </div>
           <div class="ui center aligned basic segment">
-            <div class="meta">#</div>
+            <div class="meta">
+              <h3 class="ui red header">₺{{veriler.profit}}</h3>
+            </div>
           </div>
           <div class="ui center aligned basic segment">
             <div class="description">
@@ -170,7 +172,9 @@
             <div class="header">KREDİDEN GELEN USD</div>
           </div>
           <div class="ui center aligned basic segment">
-            <div class="meta">{{kredi_verileri.kredi_giris_parasiyla_fark_usd}}</div>
+            <div class="meta">
+              <h3 class="ui red header">{{kredi_verileri.kredi_giris_parasiyla_fark_usd}}</h3>    
+            </div>
           </div>
           <div class="ui center aligned basic segment">
             <div class="description">
@@ -192,7 +196,9 @@
             <div class="header">KREDİDEN GELEN TL</div>
           </div>
           <div class="ui center aligned basic segment">
-            <div class="meta">{{kredi_verileri.kredi_giris_parasiyla_fark_tl}}</div>
+            <div class="meta">
+              <h3 class="ui red header">{{kredi_verileri.kredi_giris_parasiyla_fark_tl}}</h3>
+            </div>
           </div>
           <div class="ui center aligned basic segment">
             <div class="description">
@@ -207,6 +213,16 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="ui container">
+    <h2>KREDİ ERİME YÜZDESİ</h2>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{kredi_verileri.kredi_erime_yuzdesi}}%">
+        {{kredi_verileri.kredi_erime_yuzdesi}}
+        <span class="sr-only">70% Complete</span>
+      </div>
+    </div>
   </div>
 
 

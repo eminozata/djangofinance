@@ -38,11 +38,15 @@ def kredi_cuzdan():
     kredi_giris_parasiyla_fark_tl = -(ana_para - toplam_tl)
     kredi_giris_parasiyla_fark_usd = -(ana_para_usd - toplam_usd)
 
+    if kredi_giris_parasiyla_fark_tl < 0 :
+        kredi_erime_yuzdesi = kredi_giris_parasiyla_fark_tl / ana_para * 100
+    
 
     x = {"toplam_tl":round(toplam_tl,2),
         "toplam_usd":round(toplam_usd,2),
         "kredi_giris_parasiyla_fark_tl":round(kredi_giris_parasiyla_fark_tl,2),
-        "kredi_giris_parasiyla_fark_usd":round(kredi_giris_parasiyla_fark_usd,2)}
+        "kredi_giris_parasiyla_fark_usd":round(kredi_giris_parasiyla_fark_usd,2),
+        "kredi_erime_yuzdesi":-round(kredi_erime_yuzdesi,2)}
     return x
 
 
@@ -97,15 +101,16 @@ def ne_durumdayım():
     
     
     #Borç Analizi
-    profit = my_tl - ana_para
-    profit_perc = profit / my_tl * 100
+    profit = my_tl - 4646.57
+    profit_perc = profit / my_tl
     kalan_para = odenecek_tutar - my_tl
     kalan_para_perc = my_tl / odenecek_tutar * 100
     progress = profit / kalan_para * 100
     
+    
     x = {"my_tl":str(f"₺{round(my_tl,2)}"),
         "my_usd":str(f"${round(my_usd,2)}"),
-        "profit":profit,
+        "profit":round(profit,2),
         "profit_perc":round(profit_perc,2),
         "kalan_para":kalan_para,
         "kalan_para_perc":round(kalan_para_perc,2),
