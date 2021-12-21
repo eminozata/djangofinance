@@ -95,62 +95,28 @@
     {% endfor %}
   </div>
 
-  <div class="ui stackable one column grid">
-    <div class="column">   
-      <div class="ui segment">
 
-        <table class="ui celled padded table">
-          <thead>
-            <tr>
-              <th class="ui center aligned header">Assets</th>
-              <th><i class="bitcoin icon"></i></th>
-              <th><i class="lira sign icon"></i></th>
-              <th><i class="dollar sign icon"></th>
-            </tr>
-          </thead>
 
-          <tbody>  
-            {% for veri in veriler.wallet %}
-            <tr>
-              <td>
-                <h2 class="ui center aligned header">{{veri.asset}}</h2>
-              </td>
-              <td >
-                <div class="ui statistics">
-                  <div class="red statistic">
-                    <div class="value">
-                      {{veri.my_varlık}}
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="ui statistics">
-                  <div class="blue statistic">
-                    <div class="value">
-                      ₺{{veri.my_varlık_tl}}
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="ui statistics">
-                  <div class="green statistic">
-                    <div class="value">
-                      ${{veri.my_varlık_usd}}
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        
-      </div>
-    </div>
-  </div>
-    
+  <table class="ui celled table">
+    <thead>
+      <tr><th>Assets</th>
+        <th><i class="bitcoin icon"></i></th>
+        <th><i class="lira sign icon"></i></th>
+        <th><i class="dollar sign icon"></th>
+    </tr></thead>
+    <tbody>
+      {% for veri in veriler.wallet %}
+      <tr>
+        <td data-label="Name">{{veri.asset}}</td>
+        <td data-label="Age">{{veri.my_varlık}}</td>
+        <td data-label="Job">₺{{veri.my_varlık_tl}}</td>
+        <td data-label="Job">${{veri.my_varlık_usd}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
 
 
   <div class="ui stackable four column grid">
