@@ -54,7 +54,7 @@ def kredi_cuzdan():
 
 def crypto_rates(asset):
     if asset == 'USDT':
-        continue
+        pass
     else:
         asset_try_price = float(client.get_symbol_ticker(symbol=f"{asset}TRY")['price'])
     asset_usd_price = float(client.get_symbol_ticker(symbol=f"{asset}USDT")['price'])
